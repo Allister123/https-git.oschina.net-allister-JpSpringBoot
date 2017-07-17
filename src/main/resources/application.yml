@@ -6,13 +6,16 @@ server:
 user: #自定义属性
   username: Allister
   age: 22
+logging: #日志记录
+  file: log/log.log  
+debug: true  
 mybatis: 
   mapperLocations: classpath:com/ic2c/dao/*.xml
   typeAliasesPackage: com.ic2c
 spring: 
   datasource: # 数据库配置
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://10.10.1.2:3306/mytest?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://10.10.1.6:3306/mytest?useUnicode=true&characterEncoding=utf-8
     username: root
     password: root
   freemarker: 
@@ -28,7 +31,7 @@ spring:
     expose-spring-macro-helpers: false
   redis: 
     database: 0  #Redis数据库索引（默认为0）
-    host: 10.10.1.2  # Redis服务器地址
+    host: 10.10.1.6  # Redis服务器地址
     port: 6379  #Redis服务器连接端口
     password:  #Redis服务器连接密码（默认为空）
     pool: 

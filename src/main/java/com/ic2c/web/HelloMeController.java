@@ -54,7 +54,7 @@ public class HelloMeController {
 		List<User> users = (List<User>) redisDataUtil.get("users");
 		if(null == users){
 			users = userMapper.queryUserList(pageNo, pageSize);
-			redisDataUtil.set("users", users, 10000L);
+			redisDataUtil.set("users", users, 60L);
 		}
 		map.put("users", users);
 		return "hello";
