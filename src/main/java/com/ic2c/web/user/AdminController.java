@@ -11,6 +11,8 @@
  */
 package com.ic2c.web.user;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -30,5 +32,10 @@ public class AdminController {
 	@RequestMapping("/index")
 	public String index(){
 		return "admin/index";
+	}
+	
+	@RequestMapping("/logout")
+	public void logout(HttpSession session){
+		session.invalidate();
 	}
 }

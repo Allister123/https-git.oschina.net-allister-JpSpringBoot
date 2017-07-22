@@ -6,7 +6,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 /**
- *   <br>
+ *   Springboot启动<br>
  * Application <br>
  * @author Allister.Liu(刘继鹏) <br>
  * 时间：2017年7月14日-下午9:20:00  <br>

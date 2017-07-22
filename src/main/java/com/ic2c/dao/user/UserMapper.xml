@@ -2,10 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ic2c.dao.user.UserMapper" >
+
 	<select id="queryUserList" resultType="com.ic2c.bean.User">
 		SELECT
 			id,
-			name as username,
+			username,
 			password,
 			email,
 			create_time as createTime,
@@ -21,5 +22,28 @@
 			jp_user 
 		ORDER BY create_time DESC
 		LIMIT #{pageNo}, #{pageSize}
+	</select>
+	
+	<select id="queryUserByEmailAndPassword" resultType="com.ic2c.bean.User" parameterType="java.lang.String">
+		SELECT
+			id,
+			username,
+			password,
+			email,
+			create_time as createTime,
+			update_time as updateTime,
+			is_delete as isDelete,
+			male,
+			telephone,
+			age,
+			header_pic as headerPic,
+			address,
+			forbiden
+		FROM
+			jp_user
+		WHERE
+			email = #{email}
+		AND password = #{password}
+		AND forbiden = 1
 	</select>
 </mapper>

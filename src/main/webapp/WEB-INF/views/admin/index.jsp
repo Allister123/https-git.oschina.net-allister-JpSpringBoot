@@ -7,6 +7,7 @@
 <title>后台首页</title>
 </head>
 <body>
-后台首页  需要登陆
+<h1>后台首页  需要登陆</h1>
+<a href="http://10.10.1.3:8081/admin/logout">退出登录</a>
 </body>
 </html>
