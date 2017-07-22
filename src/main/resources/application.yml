@@ -3,19 +3,26 @@ server:
   session-timeout: 30 #session有效时间
   tomcat: 
     uri-encoding: UTF-8 #Tomcat编码设为UTF-8
+  jsp-servlet: #配置jsp页面修改后立即生效
+    init-parameters: 
+      development: true
 user: #自定义属性
   username: Allister
   age: 22
 logging: #日志记录
   file: log/log.log  
-debug: true  
+#debug: true  
 mybatis: 
   mapperLocations: classpath:com/ic2c/dao/*.xml
   typeAliasesPackage: com.ic2c
 spring: 
+  mvc: #jsp
+    view: 
+      prefix: /WEB-INF/views/
+      suffix: .jsp
   datasource: # 数据库配置
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://10.10.1.6:3306/mytest?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://10.10.1.4:3306/mytest?useUnicode=true&characterEncoding=utf-8
     username: root
     password: root
   freemarker: 

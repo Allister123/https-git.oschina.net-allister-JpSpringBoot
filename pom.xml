@@ -4,6 +4,7 @@
 	<groupId>com.ic2c</groupId>
 	<artifactId>JpSpringBoot02</artifactId>
 	<version>0.0.1</version>
+	<packaging>war</packaging>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -43,6 +44,11 @@
 	    	<groupId>org.springframework.boot</groupId>
  			<artifactId>spring-boot-starter-data-redis</artifactId>
 	    </dependency>
+	    <dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
