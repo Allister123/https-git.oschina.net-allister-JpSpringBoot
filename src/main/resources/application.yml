@@ -1,5 +1,13 @@
 server: 
-  port: 8081 # tomcat 启动端口
+  port: 443 # tomcat 启动端口
+  #https  自签证书，需要浏览器添加信任
+  ssl: 
+    enabled: true
+    key-store: classpath:ic2c.keystore
+    protocol: TLS
+    key-store-password: allister
+    keyStoreType: JKS
+    keyAlias: tomcat
   session-timeout: 30 #session有效时间
   tomcat: 
     uri-encoding: UTF-8 #Tomcat编码设为UTF-8
@@ -10,7 +18,7 @@ user: #自定义属性
   username: Allister
   age: 22
 logging: #日志记录
-  file: log/log.log  
+  file: H:/projectLog/log_JpSpringBoot.log  
 #debug: true  
 mybatis: 
   mapperLocations: classpath:com/ic2c/dao/*.xml
@@ -20,6 +28,8 @@ spring:
     view: 
       prefix: /WEB-INF/views/
       suffix: .jsp
+    favicon: #禁用默认的icon小图标
+      enabled: false
   datasource: # 数据库配置
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://10.10.1.4:3306/mytest?useUnicode=true&characterEncoding=utf-8

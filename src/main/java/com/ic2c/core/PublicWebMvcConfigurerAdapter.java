@@ -11,6 +11,14 @@
  */
 package com.ic2c.core;
 
+import org.apache.catalina.Context;
+import org.apache.catalina.connector.Connector;
+import org.apache.tomcat.util.descriptor.web.SecurityCollection;
+import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
+import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -26,6 +34,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  */
 @Configuration //标注此文件为一个配置项，spring boot才会扫描到该配置。该注解类似于之前使用xml进行配置
 public class PublicWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter{
+	
+	@Value("${server.port}")
+    private Integer webPort;
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -33,6 +44,42 @@ public class PublicWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter{
 		registry.addInterceptor(new AdminInterceptor()).addPathPatterns("/admin/**");
 	}
 
-	
+	/**
+     * 构建servlet容器的工厂类
+     * 将80端口跳转到{@linkplain #webPort}端口
+     *
+     * @return 内置servlet容器类的工厂实例
+     */
+    @Bean
+    public EmbeddedServletContainerFactory servletContainer() {
+        TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory() {
+
+            @Override
+            protected void postProcessContext(Context context) {
+                SecurityConstraint securityConstraint = new SecurityConstraint();
+                securityConstraint.setUserConstraint("CONFIDENTIAL");
+                SecurityCollection collection = new SecurityCollection();
+                collection.addPattern("/*");
+                securityConstraint.addCollection(collection);
+                context.addConstraint(securityConstraint);
+            }
+        };
+        factory.addAdditionalTomcatConnectors(createConnector());
+        return factory;
+    }
+
+    /**
+     * 创建tomcat连接器。
+     * 该连接器将会接收http的80端口的访问，并且重定向到指定的端口上去，{@linkplain #webPort}
+     *
+     * @return tomcat连接器
+     */
+    private Connector createConnector() {
+        final Connector connector = new Connector();
+
+        connector.setPort(80);
+        connector.setRedirectPort(webPort);
+        return connector;
+    }
 	
 }

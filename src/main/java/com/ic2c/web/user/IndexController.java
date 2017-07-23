@@ -75,4 +75,24 @@ public class IndexController {
 		}
 		return "empty";// 用户名或者密码为空
 	}
+	
+	
+	/**
+	 * 用户退出，session注销
+	 * com.ic2c.web.user <br>
+	 * 方法名：logout<br>
+	 * @author Allister.Liu(刘继鹏) <br>
+	 * Email：laujip@163.com <br>
+	 * 时间：2017年7月23日-下午5:20:03 <br>
+	 * @param session
+	 * @return String<br>
+	 * <a href="https://ic2c.cc">https://ic2c.cc</a> <br>
+	 * @exception <br>
+	 * @since  1.0.0 <br>
+	 */
+	@RequestMapping("/logout")
+	public String logout(HttpSession session){
+		session.invalidate();
+		return "admin/login";
+	}
 }

@@ -34,8 +34,4 @@ public class AdminController {
 		return "admin/index";
 	}
 	
-	@RequestMapping("/logout")
-	public void logout(HttpSession session){
-		session.invalidate();
-	}
 }
