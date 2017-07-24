@@ -9,7 +9,7 @@
 <%@include file="/common/common.jsp" %>
 </head>
 <body>
-<h1>后台首页  需要登陆</h1>
+<h1>后台首页  需要登陆 test</h1>
 <a href="${basePath }/logout">退出登录</a>
 </body>
 </html>
