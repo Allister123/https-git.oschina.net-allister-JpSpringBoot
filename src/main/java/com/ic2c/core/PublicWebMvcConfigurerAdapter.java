@@ -24,7 +24,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- *   <br>
+ *   https：将80端口自动转发至443<br>
  * AdminWebMvcConfigurerAdapter <br>
  * @author Allister.Liu(刘继鹏) <br>
  * Email：laujip@163.com <br>
