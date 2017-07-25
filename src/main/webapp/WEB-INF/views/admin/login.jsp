@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="nav">
-	
+
 	<div class="nav_con">
 		<div class="logobox">
 			<a href="${basePath }" class="logo_img"><img alt="ic2c.cc" src="${resPath }/images/logo.png" width="190"></a>
