@@ -93,6 +93,7 @@ public class IndexController {
 	@RequestMapping("/logout")
 	public String logout(HttpSession session){
 		session.invalidate();
+		LOG.info("用户退出即将推出");
 		return "admin/login";
 	}
 }
