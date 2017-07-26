@@ -10,9 +10,16 @@
  */
 package com.ic2c.web;
 
+import java.util.List;
+import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import com.ic2c.bean.User;
+import com.ic2c.service.UserService;
 
 /**
  *   <br>
@@ -24,6 +31,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class HelloController {
+	
+	@Resource
+	private UserService userService;
 	
 	//获取application.yml配置文件中的值
 	@Value("${user.username}")
@@ -38,5 +48,18 @@ public class HelloController {
 	}
 	
 	
+	@RequestMapping("/init/corsIdex")
+	public List<User> corsGetUsers(@RequestParam("pageNo") int pageNo, @RequestParam("pageSize") int pageSize){
+		System.out.println("进来了。。。=================");
+		List<User> users = userService.queryUserList(pageNo, pageSize);
+		return users;
+	}
+	
+	
+	@RequestMapping("/init/corsGetindex")
+	public String corsGetindex(){
+		System.out.println("进来了。。。");
+		return "success";
+	}
 	
 }
