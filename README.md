@@ -1,6 +1,6 @@
 本项目分别于MyBatis，Redis，Jsp，freemark，Cors等进行整合并开发一个简单的登录模块!
 
-环境：
+环境：<br />
     JDK1.7<br />
     Mysql5.6<br />
     Springboot 1.5.4.RELEASE<br />
