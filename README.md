@@ -1,0 +1,1 @@
+本项目分别于MyBatis，Redis，Jsp，freemark等进行整合
