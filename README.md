@@ -1,5 +1,6 @@
 ### ### springboot
 
+[易码当先：](https://ic2c.cc)
 
 本项目分别于MyBatis，Redis，Jsp，freemark，Cors等进行整合并开发一个简单的登录模块!
 
@@ -72,4 +73,53 @@ maven配置文件> pom.xml
 			</plugin>
 		</plugins>
 	</build>
+```
+
+
+### HTTPS配置：
+    如果想启用ssl，那么就将> application.yml中的注释去掉，如下图：
+<img src='https://git.oschina.net/uploads/images/2017/0728/150518_b32f989c_1160547.png' title='ic2c.cc'/>
+
+    再将> PublicWebMvcConfigurerAdapter.java中相应注释去掉即可，因为证书是自己生成的，所以浏览器默认会拦截，允许就可以了。
+```
+//======================================配置将443转向80 start===============================================
+	/**
+     * 构建servlet容器的工厂类
+     * 将80端口跳转到{@linkplain #webPort}端口
+     *
+     * @return 内置servlet容器类的工厂实例
+     *//*
+    @Bean
+    public EmbeddedServletContainerFactory servletContainer() {
+        TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory() {
+
+            @Override
+            protected void postProcessContext(Context context) {
+                SecurityConstraint securityConstraint = new SecurityConstraint();
+                securityConstraint.setUserConstraint("CONFIDENTIAL");
+                SecurityCollection collection = new SecurityCollection();
+                collection.addPattern("/*");
+                securityConstraint.addCollection(collection);
+                context.addConstraint(securityConstraint);
+            }
+        };
+        factory.addAdditionalTomcatConnectors(createConnector());
+        return factory;
+    }
+
+    *//**
+     * 创建tomcat连接器。
+     * 该连接器将会接收http的80端口的访问，并且重定向到指定的端口上去，{@linkplain #webPort}
+     *
+     * @return tomcat连接器
+     *//*
+    private Connector createConnector() {
+        final Connector connector = new Connector();
+
+        connector.setPort(80);
+        connector.setRedirectPort(webPort);
+        return connector;
+    }*/
+	
+	//======================================配置将443转向80 end===============================================
 ```
