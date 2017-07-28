@@ -6,4 +6,4 @@
     Springboot 1.5.4.RELEASE
     Redis3.0.5
 
-[输入图片说明](https://git.oschina.net/uploads/images/2017/0728/142128_f4e119f4_1160547.png "微信截图_20170728142138.png")
+https://git.oschina.net/uploads/images/2017/0728/142128_f4e119f4_1160547.png "微信截图_20170728142138.png"
