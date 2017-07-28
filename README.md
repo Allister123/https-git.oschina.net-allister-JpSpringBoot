@@ -123,3 +123,12 @@ maven配置文件> pom.xml
 	
 	//======================================配置将443转向80 end===============================================
 ```
+
+### CORS跨域资源共享
+1. 修改> CorsWebMvcConfigurerAdapter.java
+<img src='https://git.oschina.net/uploads/images/2017/0728/151404_c7f43004_1160547.png' title='ic2c.cc'/>
+
+2. 将login中的index.html文件的basePath修改为自己服务端的地址
+
+
+不要忘记数据库哦!
