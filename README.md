@@ -11,7 +11,7 @@
     4. Redis3.0.5<br />
     
 
-<img src='https://git.oschina.net/uploads/images/2017/0728/142128_f4e119f4_1160547.png' title='ic2c.cc'/>
+<img src='https://raw.githubusercontent.com/Allister123/https-git.oschina.net-allister-JpSpringBoot/master/screenshot/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170728142138.png' title='ic2c.cc'/>
 
 maven配置文件> pom.xml
 ```
@@ -131,4 +131,8 @@ maven配置文件> pom.xml
 2. 将login中的index.html文件的basePath修改为自己服务端的地址
 
 
+<<<<<<< HEAD
 不要忘记数据库哦!导入数据库：mytest.sql
+=======
+不要忘记数据库哦!
+>>>>>>> 785151a73832c8dc3422e8e95a8db1d111745531
