@@ -131,4 +131,4 @@ maven配置文件> pom.xml
 2. 将login中的index.html文件的basePath修改为自己服务端的地址
 
 
-不要忘记数据库哦!
+不要忘记数据库哦!导入数据库：mytest.sql
